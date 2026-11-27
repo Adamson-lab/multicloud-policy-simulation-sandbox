@@ -1,0 +1,12 @@
+%% Title: Chaos Policy Fault-Injection Suite (Testing Dangerous Policies Safely)
+%% Scope: Deliberately injects catastrophic candidate policies (e.g., `Deny *` on KMS or `us-east-1`) into the simulator to verify 100% detection accuracy.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart TB
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2px,color:#000000
+
+    CHAOS["Injected Catastrophic Test Policies<br/>1. Deny kms:Decrypt on Core Banking Role<br/>2. Deny sts:AssumeRole on CI/CD Deployer<br/>3. Deny ec2:RunInstances in Primary Region"]:::whiteBox
+    SIM["Counterfactual Replay & Blast-Radius Engine"]:::whiteBox
+    VER["100% Catastrophic Policies Caught & Blocked<br/>(Blast Scores: 96-100 / 100)"]:::whiteBox
+
+    CHAOS --> SIM --> VER

@@ -1,0 +1,12 @@
+%% Title: Zero-PII Cryptographic Log Sanitization Before Sandbox Replay
+%% Scope: Strips customer payloads, PII, and session tokens using keyed HMAC-SHA256 pseudonymization so simulation sandboxes never become a secondary data-leak target.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart LR
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2px,color:#000000
+
+    RAW["Raw Production Audit Logs<br/>(Contains User Emails, Source IPs & ARNs)"]:::whiteBox
+    HMAC["HSM-Backed HMAC-SHA256 Tokenizer<br/>Preserves Structural Topology & Role Relationships<br/>While Erasing 100% of Raw PII"]:::whiteBox
+    SAFE["Sanitized Replay Dataset<br/>Safe for Non-Prod Simulation & Vendor Testing"]:::whiteBox
+
+    RAW --> HMAC --> SAFE

@@ -1,0 +1,16 @@
+%% Title: Post-Promotion Autonomous False-Positive Circuit Breaker & Instant Rollback
+%% Scope: Monitors live `AccessDenied` error spikes for 60 minutes after a policy enters Enforce mode—automatically reverting to Shadow mode if error rates breach threshold.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart LR
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2px,color:#000000
+
+    ENF["Newly Enforced Policy (t = 0m)"]:::whiteBox
+    MON["Real-Time AccessDenied Spike Monitor<br/>Baseline: 2 Denies/min -> Observed: 480 Denies/min"]:::whiteBox
+    TRIP{"Spike Threshold Breached?"}:::whiteBox
+    ROLL["Autonomous Circuit Breaker:<br/>Reverts Policy to Shadow Audit Mode in 4.2s<br/>+ Pages On-Call Governance Architect"]:::whiteBox
+    OK["Policy Stabilized & Locked in Production"]:::whiteBox
+
+    ENF --> MON --> TRIP
+    TRIP -->|"Yes (Outage Prevented)"| ROLL
+    TRIP -->|"No (Normal Baseline)"| OK

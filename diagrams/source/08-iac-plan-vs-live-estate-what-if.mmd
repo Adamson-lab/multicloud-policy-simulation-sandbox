@@ -1,0 +1,14 @@
+%% Title: Terraform / OpenTofu Plan AST & Live Cloud Estate What-If Scanner
+%% Scope: Evaluates both proposed Infrastructure-as-Code pull requests and existing live cloud resources against candidate policies simultaneously.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart TB
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2px,color:#000000
+
+    TF_PLAN["Pending Terraform / OpenTofu Plans<br/>(In-Flight Infrastructure Changes)"]:::whiteBox
+    LIVE_INV["Live Multi-Cloud Resource Inventory<br/>(48,200 Existing EC2, RDS, AKS, GKE Assets)"]:::whiteBox
+    POL["Candidate Policy Bundle<br/>(e.g., Enforce TLS 1.3 + Customer-Managed KMS)"]:::whiteBox
+
+    REPORT["Unified Non-Compliance & Drift Report<br/>1. 184 Existing Live Resources Would Be Flagged<br/>2. 12 In-Flight PRs Would Fail CI Gate<br/>3. Auto-Generated Remediation HCL Patch Ready"]:::whiteBox
+
+    TF_PLAN & LIVE_INV & POL --> REPORT

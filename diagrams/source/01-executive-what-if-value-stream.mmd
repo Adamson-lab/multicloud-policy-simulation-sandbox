@@ -1,0 +1,17 @@
+%% Title: Executive Value Stream: Counterfactual Policy Simulation Before Production Enforcement
+%% Scope: Eliminates self-inflicted cloud outages by replaying 30 days of live production API traffic against candidate SCPs, Azure Policies, and GCP Org Policies before a single deny rule goes live.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart LR
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2.5px,color:#000000
+
+    CAND["1. Candidate Policy PR<br/>AWS SCP + Azure Policy +<br/>GCP Org Policy + OPA Rego"]:::whiteBox
+    LOGS["2. 30-Day Production Event Stream<br/>CloudTrail + Azure Activity +<br/>GCP Audit Logs + IaC Plans"]:::whiteBox
+    REPLAY["3. Counterfactual Replay Sandbox<br/>Evaluates 10M+ Historical Calls<br/>Against Old vs. New Policy Set"]:::whiteBox
+    BLAST["4. Blast-Radius & Outage Scorer<br/>Flags Broken Prod Services,<br/>Payment APIs & CI/CD Pipelines"]:::whiteBox
+    PROMOTE["5. Shadow-to-Enforce Gate<br/>Auto-Approves Safe Policies or<br/>Blocks Outage-Causing PRs"]:::whiteBox
+
+    CAND -->|"Candidate Ruleset"| REPLAY
+    LOGS -->|"Sanitized Event Stream"| REPLAY
+    REPLAY -->|"Allow -> Deny Diffs"| BLAST
+    BLAST -->|"Blast Score < Threshold"| PROMOTE

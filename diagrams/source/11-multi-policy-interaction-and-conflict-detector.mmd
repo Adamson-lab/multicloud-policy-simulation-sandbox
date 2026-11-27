@@ -1,0 +1,15 @@
+%% Title: Multi-Policy Interaction, Shadowing & Dead-Rule Conflict Detector
+%% Scope: Analyzes interactions across stacked SCPs, Permission Boundaries, Resource Policies, and Azure/GCP Deny rules to detect unintended policy lockouts.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart LR
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2px,color:#000000
+
+    P1["Policy 1: Org Root SCP"]:::whiteBox
+    P2["Policy 2: Prod OU SCP"]:::whiteBox
+    P3["Policy 3: BU Permission Boundary"]:::whiteBox
+    P4["Policy 4: KMS Key Resource Policy"]:::whiteBox
+
+    SOLVER["Boolean Policy Interaction Matrix<br/>1. Detects Contradictory Explicit Denies<br/>2. Identifies Redundant / Dead Rules<br/>3. Pinpoints Exact Layer Blocking Access"]:::whiteBox
+
+    P1 & P2 & P3 & P4 --> SOLVER

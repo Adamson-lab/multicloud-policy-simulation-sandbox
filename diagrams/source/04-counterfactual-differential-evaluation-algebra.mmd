@@ -1,0 +1,15 @@
+%% Title: Counterfactual Differential Evaluation Algebra (Baseline Policy vs. Candidate Policy)
+%% Scope: Isolates exact behavioral deltas (`ALLOW -> DENY` regressions and `DENY -> ALLOW` security holes) before touching production.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart TB
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2px,color:#000000
+
+    EVT["Historical Production API Event (e)<br/>Principal: Role/PaymentCore | Action: kms:Decrypt | Region: us-east-1"]:::whiteBox
+    OLD["Evaluate Under Baseline Policy (P_old)<br/>Result: ALLOW (200 OK in Production)"]:::whiteBox
+    NEW["Evaluate Under Candidate Policy (P_new)<br/>Result: DENY (Blocked by New Condition)"]:::whiteBox
+
+    DELTA["DIFFERENTIAL VERDICT: ALLOW -> DENY REGRESSION<br/>Severity: CRITICAL (Tier-0 Payments Ledger Would Fail)<br/>Action: BLOCK POLICY MERGE & AUTO-SUGGEST EXCEPTION"]:::whiteBox
+
+    EVT --> OLD & NEW
+    OLD & NEW --> DELTA

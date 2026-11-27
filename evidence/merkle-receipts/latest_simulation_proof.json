@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0-MPSS-SOX404-FEDRAMP-CM3",
+  "sealed_at_utc": "2026-11-27T16:17:21.023135+00:00",
+  "merkle_root_sha256": "72a1f0874c23dda51277669364b5e4eaf9133cbf2ccc8c1e8b11567175045cc2",
+  "worm_storage_anchors": [
+    "s3://adamson-lab-sim-worm/proofs/72a1f0874c23dda5.json",
+    "https://adamsonlabsimworm.blob.core.windows.net/proofs/72a1f0874c23dda5.json",
+    "gs://adamson-lab-sim-worm-gcp/proofs/72a1f0874c23dda5.json"
+  ],
+  "simulation_report": {
+    "policy_id": "SCP-BLOCK-UNAPPROVED-REGIONS-02",
+    "policy_description": "Deny compute provisioning outside approved US/EU sovereign regions (us-east-1, eastus2, eu-central-1)",
+    "events_replayed": 5,
+    "regressions": [
+      {
+        "event_id": "evt-004",
+        "cloud": "gcp",
+        "principal": "role/DevSandboxRunner",
+        "action": "compute.instances.insert",
+        "region": "ap-southeast-1",
+        "transition": "ALLOW -> DENY"
+      },
+      {
+        "event_id": "evt-005",
+        "cloud": "aws",
+        "principal": "role/DevSandboxRunner",
+        "action": "ec2:RunInstances",
+        "region": "ap-south-1",
+        "transition": "ALLOW -> DENY"
+      }
+    ],
+    "blast_summary": {
+      "blast_radius_score_0_to_100": 2,
+      "total_regressions_detected": 2,
+      "tier_0_critical_impacts": [],
+      "gate_verdict": "APPROVE_FOR_SHADOW_CANARY",
+      "synthesized_least_privilege_exceptions": []
+    },
+    "proof_leaves": [
+      {
+        "policy_id": "SCP-BLOCK-UNAPPROVED-REGIONS-02",
+        "events_replayed": 5
+      },
+      {
+        "blast_radius_score_0_to_100": 2,
+        "total_regressions_detected": 2,
+        "tier_0_critical_impacts": [],
+        "gate_verdict": "APPROVE_FOR_SHADOW_CANARY",
+        "synthesized_least_privilege_exceptions": []
+      }
+    ]
+  }
+}

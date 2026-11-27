@@ -1,0 +1,14 @@
+%% Title: 1:1 Multi-Cloud Dry-Run & Shadow Enforcement Architecture (AWS, Azure & GCP)
+%% Scope: Bridges native cloud simulation APIs into a single unified counterfactual evaluation pipeline across all three hyperscalers.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart TB
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2.5px,color:#000000
+
+    CANON["Canonical Policy Simulation Request<br/>Candidate Rego + Target OU / MG / Folder"]:::whiteBox
+
+    AWS_SIM["AWS Simulation & Shadow Layer<br/>1. IAM SimulateCustomPolicy API<br/>2. CloudTrail 30-Day Replay Engine<br/>3. Control Tower Detective Guardrail Shadow"]:::whiteBox
+    AZ_SIM["Azure Simulation & Shadow Layer<br/>1. ARM Deployment What-If API<br/>2. Azure Policy 'Audit' Effect Shadow Mode<br/>3. Azure Resource Graph Compliance Scan"]:::whiteBox
+    GCP_SIM["GCP Simulation & Shadow Layer<br/>1. Org Policy Dry-Run Mode (rules_dry_run)<br/>2. IAM Policy Simulator API<br/>3. Cloud Asset Inventory Replay"]:::whiteBox
+
+    CANON --> AWS_SIM & AZ_SIM & GCP_SIM

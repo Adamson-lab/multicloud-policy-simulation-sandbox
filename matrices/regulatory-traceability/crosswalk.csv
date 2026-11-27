@@ -1,0 +1,4 @@
+Control_ID,Framework,Requirement,MPSS_Technical_Control,Verified_Evidence
+SOX-404-CHG-01,Sarbanes-Oxley 404,Pre-Implementation Impact Testing of Access/Config Controls,30-Day Counterfactual Audit Replay + Merkle Proof,Merkle Simulation Receipt
+DORA-ART-25,EU DORA,Digital Operational Resilience Testing of ICT Changes,4-Stage Replay -> 7d Shadow Audit -> Canary Promotion,Shadow Promotion Log
+FEDRAMP-CM-3,FedRAMP High,Configuration Change Control & Security Impact Analysis,Terraform Plan + Live Estate What-If Differential Report,Blast-Radius Report

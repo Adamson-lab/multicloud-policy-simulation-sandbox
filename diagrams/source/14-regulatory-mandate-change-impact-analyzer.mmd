@@ -1,0 +1,12 @@
+%% Title: New Regulatory Mandate Impact Simulator (PCI-DSS v4.0, EU DORA & NIST 800-53 Rev 5)
+%% Scope: Tests proposed compliance policy packs against the entire multi-cloud estate to quantify engineering remediation effort before compliance deadlines.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart TB
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2px,color:#000000
+
+    PACK["PCI-DSS v4.0 Mandatory Control Pack<br/>(42 Rego + AWS + Azure + GCP Rules)"]:::whiteBox
+    ESTATE["Global Multi-Cloud Estate Snapshot<br/>(140 Accounts | 48,200 Resources)"]:::whiteBox
+    DASH["Executive Readiness & Effort Forecast<br/>Compliant Today: 91.4% (44,055 Resources)<br/>Remediation Backlog: 4,145 Resources (~3.5 Squad-Weeks)"]:::whiteBox
+
+    PACK & ESTATE --> DASH

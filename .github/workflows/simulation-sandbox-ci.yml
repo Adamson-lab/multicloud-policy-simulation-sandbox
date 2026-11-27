@@ -1,0 +1,26 @@
+name: Multi-Cloud Policy Simulation & Blast-Radius CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  counterfactual-replay-and-tests:
+    name: Counterfactual Replay, Blast-Radius Gate & Merkle Proof Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile Policy Simulation Modules
+        run: make lint
+      - name: Run Counterfactual Replay, Chaos & Merkle Tests
+        run: make test
+      - name: Execute Live Simulation & Verify SOX 404 Merkle Proof
+        run: make demo && make verify

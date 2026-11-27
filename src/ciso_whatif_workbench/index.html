@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MPSS | Plain-White Executive What-If Policy Simulation Workbench</title>
+  <style>
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #ffffff; color: #000000; margin: 0; padding: 32px; }
+    .hdr { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #000000; padding-bottom: 16px; margin-bottom: 24px; }
+    .badge { background: #ffffff; color: #000000; border: 2px solid #000000; padding: 6px 14px; font-size: 12px; font-weight: 800; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+    .card { background: #ffffff; border: 2px solid #111827; padding: 18px; }
+    .lbl { font-size: 11px; color: #111827; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+    .val { font-size: 28px; font-weight: 900; margin: 8px 0; color: #000000; }
+    .sub { font-size: 12px; color: #374151; }
+    table { width: 100%; border-collapse: collapse; background: #ffffff; border: 2px solid #000000; }
+    th, td { padding: 12px 16px; text-align: left; border: 1px solid #111827; font-size: 13px; }
+    th { background: #f9fafb; font-weight: 800; }
+    .strong { font-weight: 800; }
+  </style>
+</head>
+<body>
+  <div class="hdr">
+    <div>
+      <h1 style="margin:0;font-size:22px;font-weight:900;">Multi-Cloud Policy Simulation Sandbox &mdash; What-If Workbench</h1>
+      <div class="sub">Lead Architect: Favour Ikeoluwa Adamson (Adamson-lab) | 30-Day Counterfactual Replay &bull; CMDB Blast Scorer &bull; SOX 404 Merkle Ledger</div>
+    </div>
+    <span class="badge">SELF-INFLICTED POLICY OUTAGES: 0 &bull; CIRCUIT BREAKER: ARMED (4.2s)</span>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="lbl">30-Day Events Replayed</div><div class="val">10.4M</div><div class="sub">CloudTrail + Azure + GCP Audit</div></div>
+    <div class="card"><div class="lbl">PR Simulation SLA</div><div class="val">74 secs</div><div class="sub">Full Estate + Terraform Plan Diff</div></div>
+    <div class="card"><div class="lbl">Tier-0 Outages Prevented</div><div class="val">14</div><div class="sub">Caught Before Prod Enforcement</div></div>
+    <div class="card"><div class="lbl">Auto-Rollback Speed</div><div class="val">4.2 secs</div><div class="sub">AccessDenied Spike Circuit Breaker</div></div>
+  </div>
+  <table>
+    <thead><tr><th>Candidate Policy ID</th><th>Target Cloud Scope</th><th>Replay Regressions</th><th>Blast Score</th><th>Gate Verdict</th><th>SOX 404 Merkle Proof</th></tr></thead>
+    <tbody>
+      <tr><td>SCP-KMS-STRICT-01</td><td>AWS Org Root</td><td>1 (Tier-0 Payments)</td><td class="strong">100 / 100</td><td class="strong">BLOCKED + EXCEPTION SYNTHESIZED</td><td>WORM SEALED</td></tr>
+      <tr><td>SCP-BLOCK-UNAPPROVED-REGIONS-02</td><td>AWS + Azure + GCP</td><td>2 (Tier-2 Dev Sandbox)</td><td class="strong">2 / 100</td><td class="strong">APPROVED FOR SHADOW CANARY</td><td>WORM SEALED</td></tr>
+      <tr><td>AZ-POL-REQUIRE-CMK-04</td><td>Azure Prod MG</td><td>1 (Legacy Reporting DB)</td><td class="strong">25 / 100</td><td class="strong">SHADOW AUDIT + REMEDIATION PR</td><td>WORM SEALED</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

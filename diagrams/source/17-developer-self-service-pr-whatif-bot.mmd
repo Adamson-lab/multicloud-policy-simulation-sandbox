@@ -1,0 +1,16 @@
+%% Title: Developer Self-Service GitHub / GitLab Pull Request What-If Comment Bot
+%% Scope: Posts deterministic blast-radius tables directly onto every policy pull request within 90 seconds so engineers and CISO reviewers approve with mathematical certainty.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+sequenceDiagram
+    autonumber
+    participant Dev as Platform / Security Engineer
+    participant Git as GitHub Pull Request
+    participant Bot as Simulation Sandbox CI Bot
+    participant Merkle as SOX 404 Merkle Ledger
+
+    Dev->>Git: Open PR modifying `scp-deny-unencrypted-ebs.json`
+    Git->>Bot: Trigger Counterfactual 30-Day Replay Workflow
+    Bot->>Bot: Replay 10.4M historical calls + scan 48,200 live assets
+    Bot->>Merkle: Seal simulation digest (`sha256:9f82c1...`)
+    Bot-->>Git: Post PR Status Check: PASS (Blast Score: 3/100, 0 Prod Regressions)

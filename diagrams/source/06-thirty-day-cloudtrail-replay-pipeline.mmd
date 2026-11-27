@@ -1,0 +1,17 @@
+%% Title: 30-Day Historical CloudTrail, Azure Activity & GCP Audit Log Replay Pipeline
+%% Scope: Streams compressed historical API logs through an in-memory policy evaluator to uncover hidden service dependencies before enforcing restrictive SCPs.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+sequenceDiagram
+    autonumber
+    participant Lake as Multi-Cloud Audit Log Lake (Parquet)
+    participant Scrub as PII Scrubber & Normalizer
+    participant Replayer as Go Differential Policy Replayer
+    participant CMDB as ServiceNow Tier-0 App Registry
+    participant PR as GitHub Pull Request Gate
+
+    Lake->>Scrub: Stream 30 days of historical API calls (10.4M events)
+    Scrub->>Replayer: Feed canonical (Principal, Action, Resource, Context) tuples
+    Replayer->>Replayer: Evaluate every tuple against Baseline vs. Candidate Policy
+    Replayer->>CMDB: Enrich newly denied calls with Business Criticality Tier
+    CMDB-->>PR: Post Blast-Radius Comment (0 Tier-0 Impacts -> Safe to Merge)

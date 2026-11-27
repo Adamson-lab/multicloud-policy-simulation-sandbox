@@ -1,0 +1,15 @@
+%% Title: Zero-Outage Shadow-Mode (`Audit`) to Hard-Enforcement (`Deny`) Canary Lifecycle
+%% Scope: Promotes validated policies through four progressive rings—Offline Replay, 7-Day Live Shadow Audit, Canary OU Enforcement, and Global Enforcement.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart LR
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2.5px,color:#000000
+
+    S1["Stage 1: Offline 30-Day Replay<br/>(0s Prod Exposure | < 2 Mins)"]:::whiteBox
+    S2["Stage 2: Live Shadow Audit Mode<br/>(Logs Would-Be Denies for 7 Days)"]:::whiteBox
+    S3["Stage 3: Canary Non-Prod OU<br/>(Hard Deny on Sandbox & QA)"]:::whiteBox
+    S4["Stage 4: Global Prod Enforcement<br/>(Auto-Rollback Trigger Armed)"]:::whiteBox
+
+    S1 -->|"Blast Score < 15"| S2
+    S2 -->|"Zero False Positives"| S3
+    S3 -->|"48h Clean Telemetry"| S4

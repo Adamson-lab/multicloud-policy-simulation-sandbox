@@ -1,0 +1,15 @@
+%% Title: VPC Service Controls, PrivateLink & Firewall Rule What-If Traffic Simulator
+%% Scope: Simulates network perimeter policies (GCP VPC-SC dry-run, AWS VPC Lattice/Security Groups, Azure Firewall) against live VPC Flow Logs before cutting off traffic.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+sequenceDiagram
+    autonumber
+    participant Flow as VPC / NSG Flow Log Collector
+    participant NetSim as Network Perimeter What-If Simulator
+    participant Perim as Candidate VPC-SC / Firewall Ruleset
+    participant SecOps as Network Security Architect
+
+    Flow->>NetSim: Replay 14 days of East-West & Egress flow tuples
+    Perim->>NetSim: Load proposed zero-trust micro-segmentation rules
+    NetSim->>NetSim: Identify 3 undocumented Kafka replication ports
+    NetSim-->>SecOps: Alert: Enforcing Now Would Break Cross-AZ Kafka Sync

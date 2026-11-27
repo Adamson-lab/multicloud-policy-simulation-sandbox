@@ -1,0 +1,19 @@
+%% Title: C4 Level 2: Container Architecture — Log Replayer, Differential Evaluator & Shadow Promoter
+%% Scope: Shows internal containerized engines performing differential policy evaluation, blast-radius scoring, and progressive shadow-to-enforce rollout.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart LR
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2px,color:#000000
+
+    SCRUB["PII & Credential Scrubber<br/>(Tokenizes ARNs, IPs & Session IDs)"]:::whiteBox
+    GO_REP["High-Throughput Go Log Replayer<br/>(100,000 Events/Sec Differential Engine)"]:::whiteBox
+    DIFF["Baseline vs. Candidate Diff Engine<br/>(Detects Newly Blocked Prod Traffic)"]:::whiteBox
+    SCORE["Business-Criticality Blast Scorer<br/>(Weights Tier-0 Payments vs. Dev Sandbox)"]:::whiteBox
+    SHADOW["Shadow-Mode Canary Controller<br/>(7-Day Audit-Only -> Enforce Promotion)"]:::whiteBox
+    LEDGER[("Merkle Simulation Proof Ledger<br/>(Immutable Change-Control Store)")]:::whiteBox
+
+    SCRUB -->|"Clean Event Stream"| GO_REP
+    GO_REP -->|"Old vs. New Verdicts"| DIFF
+    DIFF -->|"Allow-to-Deny Transitions"| SCORE
+    SCORE -->|"Risk-Scored Impact Report"| SHADOW
+    SCORE & SHADOW -->|"Seal Cryptographic Receipt"| LEDGER

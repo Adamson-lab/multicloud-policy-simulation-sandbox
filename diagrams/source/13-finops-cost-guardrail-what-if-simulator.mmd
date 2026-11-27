@@ -1,0 +1,12 @@
+%% Title: FinOps Cost-Ceiling & Instance-Restriction Policy What-If Simulator
+%% Scope: Models the financial and operational impact of proposed FinOps policies (e.g., banning `p5.48xlarge` GPUs or unapproved regions) across active workloads.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart LR
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2px,color:#000000
+
+    FPOL["Candidate FinOps Policy<br/>Deny GPU Instances > $10/hr Outside AI-OU"]:::whiteBox
+    HIST["30-Day Provisioning & Spend Telemetry"]:::whiteBox
+    SIM["FinOps What-If Outcome<br/>1. Projected Monthly Savings: $412,000<br/>2. Blocked Dev Overspend Events: 37<br/>3. Prod AI Inference Impact: 0 (Exempted)"]:::whiteBox
+
+    FPOL & HIST --> SIM

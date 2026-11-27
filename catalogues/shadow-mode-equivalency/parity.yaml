@@ -1,0 +1,9 @@
+policy_simulation_parity:
+  - capability: Pre-Deployment Dry-Run / What-If Evaluation
+    aws: IAM SimulateCustomPolicy + CloudTrail Counterfactual Replayer
+    azure: ARM Deployment What-If + Azure Resource Graph Compliance Scan
+    gcp: Organization Policy Dry-Run (`rules_dry_run`) + IAM Policy Simulator
+  - capability: Live Non-Blocking Shadow Audit Mode
+    aws: AWS Control Tower Detective Guardrails + CloudTrail EventBridge Audit
+    azure: Azure Policy `Audit` / `AuditIfNotExists` Effect
+    gcp: GCP VPC Service Controls Dry-Run Perimeter & Org Policy Dry-Run

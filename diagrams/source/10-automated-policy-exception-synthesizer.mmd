@@ -1,0 +1,12 @@
+%% Title: Automated Least-Privilege Policy Exception & Condition-Key Synthesizer
+%% Scope: When a candidate guardrail accidentally blocks a legitimate legacy service, the engine synthesizes the narrowest possible ARN/Principal condition exception.
+%% Style: Pure Monochrome Plain-White Architectural Blueprint
+%% Author: Favour Ikeoluwa Adamson (Chief Enterprise Architect)
+flowchart TB
+    classDef whiteBox fill:#ffffff,stroke:#111827,stroke-width:2px,color:#000000
+
+    REG["Detected False-Positive Regression<br/>SCP 'DenyS3PublicAccess' Blocks Legacy<br/>Mainframe Settlement Connector Role"]:::whiteBox
+    SYN["Least-Privilege Exception Synthesizer<br/>Generates Tight Scoped Condition:<br/>ArnNotLike: 'arn:aws:iam::111:role/SettlementSync'"]:::whiteBox
+    RETEST["Re-Runs 30-Day Replay Automatically<br/>Result: 0 Regressions + 99.98% Guardrail Coverage"]:::whiteBox
+
+    REG --> SYN --> RETEST
